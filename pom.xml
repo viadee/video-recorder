@@ -30,6 +30,19 @@
       <url>http://repo.jenkins-ci.org/releases/</url>
     </repository>
   </repositories>
+  <distributionManagement>
+    <repository>
+      <id>releases</id>
+      <name>Releases</name>
+      <url>https://github.com/viadee/video-recorder</url>
+    </repository>
+
+    <snapshotRepository>
+      <id>snapshots</id>
+      <name>Snapshots</name>
+      <url>https://github.com/viadee/video-recorder</url>
+    </snapshotRepository>
+  </distributionManagement>	
   <dependencies>
     <dependency>
       <groupId>ru.sbtqa</groupId>

@@ -10,21 +10,23 @@ public class VideoRecorder {
     private static final String DEFAULT_EXTENSION = ".avi";
 
     private static VideoRecorderService service;
-    private static String videoFolder = System.getProperty("java.io.tmpdir");
+    private static String videoFolder = "";
     private static String videoFileName;
     private static boolean isVideoRecording = false;
 
-    public static void startRecording() {
+    public static void startRecording(String providedVideoFolder) {
         if (isVideoRecording) {
             LOG.debug("Video is already being recorded");
             return;
         }
 
+        videoFolder = providedVideoFolder;
+
         isVideoRecording = true;
 
         videoFileName = UUID.randomUUID().toString();
 
-        VideoRecorderModule videoRecorderModule = new VideoRecorderModule(getVideoFolder());
+        VideoRecorderModule videoRecorderModule = new VideoRecorderModule(videoFolder);
         Recorder provideScreenRecorder = videoRecorderModule.provideScreenRecorder();
         service = new VideoRecorderService(provideScreenRecorder);
 

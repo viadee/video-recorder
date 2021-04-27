@@ -33,8 +33,8 @@ public class VideoRecorder {
             String providedVideoFolder = providedVideoPath.substring(0,lastIndexOfSlash);
 
             Path providedVideoFolderPath = Paths.get(providedVideoFolder);
-            if(Files.exists(providedVideoFolderPath)) {
 
+            if(Files.exists(providedVideoFolderPath)) {
                 videoFolder = providedVideoFolder;
                 isVideoRecording = true;
 
